@@ -21,6 +21,16 @@ public class FsBaseEvent {
     @JSONField(name = "Core-UUID")
     protected String coreUuid;
 
+    /**
+     * Unique-ID 字段代表了一个特定通话的唯一标识符。这个标识符在通话的整个生命周期内都是唯一的，从通话建立开始直到通话结束
+     * Unique-ID 的主要用途包括：
+     *
+     * 跟踪和管理通话：通过 Unique-ID，系统管理员和开发者可以精确地跟踪和管理单个通话。这对于调试、监控通话状态、生成话单等都非常有用。
+     *
+     * 通话控制：在需要对通话进行操作（如挂断、转接、修改通话属性等）时，Unique-ID 用于指定要控制的通话。
+     *
+     * 事件关联：在 FreeSWITCH 中，所有与特定通话相关的事件（如 CHANNEL_CREATE、CHANNEL_ANSWER、CHANNEL_HANGUP 等）都会包含相同的 Unique-ID。这使得开发者可以轻松地将事件与特定的通话关联起来。
+     */
     @JSONField(name = "Unique-ID")
     protected String deviceId;
 
